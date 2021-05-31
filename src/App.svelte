@@ -85,26 +85,6 @@
 	<h1>Sudoku Solver</h1>
 </header>
 <div class="container">
-	<div class="form-container">
-		<form id="solve-form">
-			<!--<textarea rows="10" cols="85" id="text-input" name="puzzle" />-->
-			<br />
-			<input type="button" value="Solve" id="solve-button" />
-			<div id="error-msg" />
-		</form>
-		<form id="check-form">
-			<p>
-				Coordinate (A1): <input
-					id="coord"
-					class="checker"
-					type="text"
-				/>
-			</p>
-			<p>Value (1-9): <input class="checker" type="text" id="val" /></p>
-			<input type="button" id="check-button" value="Check Placement" />
-		</form>
-		<span id="error" />
-	</div>
 	<div id="sudoku-grid">
 		<form action="">
 			{#each numArr as num}
@@ -217,6 +197,26 @@
 				</tr>
 			</tbody>
 		</table>-->
+	</div>
+	<div class="form-container">
+		<form id="solve-form">
+			<!--<textarea rows="10" cols="85" id="text-input" name="puzzle" />-->
+			<br />
+			<input type="button" value="Solve" id="solve-button" />
+			<div id="error-msg" />
+		</form>
+		<form id="check-form">
+			<!--<p>
+				Coordinate (A1): <input
+					id="coord"
+					class="checker"
+					type="text"
+				/>
+			</p>
+			<p>Value (1-9): <input class="checker" type="text" id="val" /></p>-->
+			<input type="button" id="check-button" value="Check Placement" />
+		</form>
+		<span id="error" />
 	</div>
 </div>
 
