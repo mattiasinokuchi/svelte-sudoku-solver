@@ -1,6 +1,88 @@
 <script>
 	//const textArea = document.getElementById("text-input");
-	let numArr = ["","",9,"","",5,"",1,"",8,5,"",4,"","","","",2,4,3,2,"","","","","","",1,"","","",6,9,"",8,3,"",9,"","","","","",6,"",6,2,"",7,1,"","","",9,"","","","","","",1,9,4,5,"","","","",4,"",3,7,"",4,"",3,"","",6,"",""];
+	let numArr = [
+		"",
+		"",
+		9,
+		"",
+		"",
+		5,
+		"",
+		1,
+		"",
+		8,
+		5,
+		"",
+		4,
+		"",
+		"",
+		"",
+		"",
+		2,
+		4,
+		3,
+		2,
+		"",
+		"",
+		"",
+		"",
+		"",
+		"",
+		1,
+		"",
+		"",
+		"",
+		6,
+		9,
+		"",
+		8,
+		3,
+		"",
+		9,
+		"",
+		"",
+		"",
+		"",
+		"",
+		6,
+		"",
+		6,
+		2,
+		"",
+		7,
+		1,
+		"",
+		"",
+		"",
+		9,
+		"",
+		"",
+		"",
+		"",
+		"",
+		"",
+		1,
+		9,
+		4,
+		5,
+		"",
+		"",
+		"",
+		"",
+		4,
+		"",
+		3,
+		7,
+		"",
+		4,
+		"",
+		3,
+		"",
+		"",
+		6,
+		"",
+		"",
+	];
 	/*const coordInput = document.getElementById("coord");
 	const valInput = document.getElementById("val");
 	const errorMsg = document.getElementById("error");
@@ -84,129 +166,19 @@
 <header>
 	<h1>Sudoku Solver</h1>
 </header>
-<div class="container">
-	<div id="sudoku-grid">
-		<form action="">
-			{#each numArr as num}
-				<input
-					bind:value={num}
-					size="1"
-				>
-			{/each}
-		</form>
-		<!--<table class="grid">
-			<tbody>
-				<tr>
-					<td class="A1 sudoku-input" />
-					<td class="A2 sudoku-input" />
-					<td class="A3 sudoku-input" />
-					<td class="A4 sudoku-input" />
-					<td class="A5 sudoku-input" />
-					<td class="A6 sudoku-input" />
-					<td class="A7 sudoku-input" />
-					<td class="A8 sudoku-input" />
-					<td class="A9 sudoku-input" />
-				</tr>
-				<tr>
-					<td class="B1 sudoku-input" />
-					<td class="B2 sudoku-input" />
-					<td class="B3 sudoku-input" />
-					<td class="B4 sudoku-input" />
-					<td class="B5 sudoku-input" />
-					<td class="B6 sudoku-input" />
-					<td class="B7 sudoku-input" />
-					<td class="B8 sudoku-input" />
-					<td class="B9 sudoku-input" />
-				</tr>
-				<tr>
-					<td class="C1 sudoku-input" />
-					<td class="C2 sudoku-input" />
-					<td class="C3 sudoku-input" />
-					<td class="C4 sudoku-input" />
-					<td class="C5 sudoku-input" />
-					<td class="C6 sudoku-input" />
-					<td class="C7 sudoku-input" />
-					<td class="C8 sudoku-input" />
-					<td class="C9 sudoku-input" />
-				</tr>
-				<tr>
-					<td class="D1 sudoku-input" />
-					<td class="D2 sudoku-input" />
-					<td class="D3 sudoku-input" />
-					<td class="D4 sudoku-input" />
-					<td class="D5 sudoku-input" />
-					<td class="D6 sudoku-input" />
-					<td class="D7 sudoku-input" />
-					<td class="D8 sudoku-input" />
-					<td class="D9 sudoku-input" />
-				</tr>
-				<tr>
-					<td class="E1 sudoku-input" />
-					<td class="E2 sudoku-input" />
-					<td class="E3 sudoku-input" />
-					<td class="E4 sudoku-input" />
-					<td class="E5 sudoku-input" />
-					<td class="E6 sudoku-input" />
-					<td class="E7 sudoku-input" />
-					<td class="E8 sudoku-input" />
-					<td class="E9 sudoku-input" />
-				</tr>
-				<tr>
-					<td class="F1 sudoku-input" />
-					<td class="F2 sudoku-input" />
-					<td class="F3 sudoku-input" />
-					<td class="F4 sudoku-input" />
-					<td class="F5 sudoku-input" />
-					<td class="F6 sudoku-input" />
-					<td class="F7 sudoku-input" />
-					<td class="F8 sudoku-input" />
-					<td class="F9 sudoku-input" />
-				</tr>
-				<tr>
-					<td class="G1 sudoku-input" />
-					<td class="G2 sudoku-input" />
-					<td class="G3 sudoku-input" />
-					<td class="G4 sudoku-input" />
-					<td class="G5 sudoku-input" />
-					<td class="G6 sudoku-input" />
-					<td class="G7 sudoku-input" />
-					<td class="G8 sudoku-input" />
-					<td class="G9 sudoku-input" />
-				</tr>
-				<tr>
-					<td class="H1 sudoku-input" />
-					<td class="H2 sudoku-input" />
-					<td class="H3 sudoku-input" />
-					<td class="H4 sudoku-input" />
-					<td class="H5 sudoku-input" />
-					<td class="H6 sudoku-input" />
-					<td class="H7 sudoku-input" />
-					<td class="H8 sudoku-input" />
-					<td class="H9 sudoku-input" />
-				</tr>
-				<tr>
-					<td class="I1 sudoku-input" />
-					<td class="I2 sudoku-input" />
-					<td class="I3 sudoku-input" />
-					<td class="I4 sudoku-input" />
-					<td class="I5 sudoku-input" />
-					<td class="I6 sudoku-input" />
-					<td class="I7 sudoku-input" />
-					<td class="I8 sudoku-input" />
-					<td class="I9 sudoku-input" />
-				</tr>
-			</tbody>
-		</table>-->
-	</div>
-	<div class="form-container">
-		<form id="solve-form">
-			<!--<textarea rows="10" cols="85" id="text-input" name="puzzle" />-->
-			<br />
-			<input type="button" value="Solve" id="solve-button" />
-			<div id="error-msg" />
-		</form>
-		<form id="check-form">
-			<!--<p>
+<form id="sudoku-grid" action="">
+	{#each numArr as num}
+		<input bind:value={num} size="1" />
+	{/each}
+</form>
+<form id="solve-form">
+	<!--<textarea rows="10" cols="85" id="text-input" name="puzzle" />-->
+	<br />
+	<input type="button" value="Solve" id="solve-button" />
+	<div id="error-msg" />
+</form>
+<form id="check-form">
+	<!--<p>
 				Coordinate (A1): <input
 					id="coord"
 					class="checker"
@@ -214,22 +186,11 @@
 				/>
 			</p>
 			<p>Value (1-9): <input class="checker" type="text" id="val" /></p>-->
-			<input type="button" id="check-button" value="Check Placement" />
-		</form>
-		<span id="error" />
-	</div>
-</div>
+	<input type="button" id="check-button" value="Check Placement" />
+</form>
+<span id="error" />
 
 <style>
-	.container {
-		display: flex;
-		flex-direction: column;
-	}
-
-	.form-container {
-		max-width: 95%;
-	}
-
 	/*textarea {
 		width: 100%;
 	}*/
@@ -241,9 +202,8 @@
 	}
 
 	#sudoku-grid {
-		margin-left: 20px;
-		text-align: center;
-		display: inline;
+		display: grid;
+		grid-template-columns: repeat(9, 1fr);
 	}
 
 	/*.grid {
@@ -306,10 +266,6 @@
 	}*/
 
 	@media (min-width: 800px) {
-		.container {
-			flex-direction: row;
-		}
-
 		.form-container {
 			align-self: flex-end;
 		}
