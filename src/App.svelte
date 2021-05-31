@@ -108,7 +108,10 @@
 	<div id="sudoku-grid">
 		<form action="">
 			{#each numArr as num}
-				<input bind:value={num}>
+				<input
+					bind:value={num}
+					size="1"
+				>
 			{/each}
 		</form>
 		<table class="grid">
