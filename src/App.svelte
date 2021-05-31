@@ -87,7 +87,7 @@
 <div class="container">
 	<div class="form-container">
 		<form id="solve-form">
-			<textarea rows="10" cols="85" id="text-input" name="puzzle" />
+			<!--<textarea rows="10" cols="85" id="text-input" name="puzzle" />-->
 			<br />
 			<input type="button" value="Solve" id="solve-button" />
 			<div id="error-msg" />
@@ -114,7 +114,7 @@
 				>
 			{/each}
 		</form>
-		<table class="grid">
+		<!--<table class="grid">
 			<tbody>
 				<tr>
 					<td class="A1 sudoku-input" />
@@ -216,7 +216,7 @@
 					<td class="I9 sudoku-input" />
 				</tr>
 			</tbody>
-		</table>
+		</table>-->
 	</div>
 </div>
 
@@ -230,9 +230,9 @@
 		max-width: 95%;
 	}
 
-	textarea {
+	/*textarea {
 		width: 100%;
-	}
+	}*/
 
 	#error-msg {
 		color: red;
@@ -246,7 +246,7 @@
 		display: inline;
 	}
 
-	.grid {
+	/*.grid {
 		border: 3px solid;
 		border-spacing: 0;
 	}
@@ -303,7 +303,7 @@
 	.H6,
 	.I6 {
 		border-right: 3px solid;
-	}
+	}*/
 
 	@media (min-width: 800px) {
 		.container {
