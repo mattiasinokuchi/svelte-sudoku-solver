@@ -199,6 +199,8 @@
 	#sudoku-grid {
 		display: grid;
 		grid-template-columns: repeat(9, 1fr);
+		height: 50vh;
+		width: 50vh;
 	}
 
 	@media (min-width: 800px) {
