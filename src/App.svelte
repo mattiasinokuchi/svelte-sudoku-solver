@@ -191,14 +191,9 @@
 <span id="error" />
 
 <style>
-	/*textarea {
-		width: 100%;
-	}*/
-
-	#error-msg {
-		color: red;
-		display: inline;
-		margin-left: 10px;
+	input {
+		aspect-ratio: 1;
+		text-align: center;
 	}
 
 	#sudoku-grid {
@@ -206,68 +201,6 @@
 		grid-template-columns: repeat(9, 1fr);
 	}
 
-	/*.grid {
-		border: 3px solid;
-		border-spacing: 0;
-	}
-
-	td {
-		border: 1px solid;
-		padding: 0.3em;
-	}
-
-	.sudoku-input {
-		border: 1px solid black;
-		width: 2em;
-		height: 2em;
-		text-align: center;
-	}
-
-	.C1,
-	.C2,
-	.C3,
-	.C4,
-	.C5,
-	.C6,
-	.C7,
-	.C8,
-	.C9,
-	.F1,
-	.F2,
-	.F3,
-	.F4,
-	.F5,
-	.F6,
-	.F7,
-	.F8,
-	.F9 {
-		border-bottom: 3px solid;
-	}
-
-	.A3,
-	.B3,
-	.C3,
-	.D3,
-	.E3,
-	.F3,
-	.G3,
-	.H3,
-	.I3,
-	.A6,
-	.B6,
-	.C6,
-	.D6,
-	.E6,
-	.F6,
-	.G6,
-	.H6,
-	.I6 {
-		border-right: 3px solid;
-	}*/
-
 	@media (min-width: 800px) {
-		.form-container {
-			align-self: flex-end;
-		}
 	}
 </style>
