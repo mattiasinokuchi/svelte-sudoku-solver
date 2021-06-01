@@ -168,10 +168,13 @@
 </header>
 <form id="sudoku-grid" action="">
 	{#each numArr as num}
-		<input
-			class="cell"
-			bind:value={num} size="1"
-		/>
+		<div class="cell">
+			<input
+				class="cellInput"
+				bind:value={num}
+				size="1"
+			/>
+		</div>
 	{/each}
 </form>
 <form id="solve-form">
@@ -194,9 +197,13 @@
 <span id="error" />
 
 <style>
-	.cell {
+	.cellInput {
 		text-align: center;
 		border: none;
+	}
+
+	.cell {
+		border: solid 1px;
 	}
 
 	#sudoku-grid {
