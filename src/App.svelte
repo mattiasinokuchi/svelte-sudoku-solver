@@ -192,8 +192,8 @@
 
 <style>
 	input {
-		aspect-ratio: 1;
 		text-align: center;
+		border: none;
 	}
 
 	#sudoku-grid {
@@ -201,6 +201,7 @@
 		grid-template-columns: repeat(9, 1fr);
 		height: 50vh;
 		width: 50vh;
+		border: solid 1px;
 	}
 
 	@media (min-width: 800px) {
