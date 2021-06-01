@@ -193,9 +193,41 @@
 <style>
 	.cellInput {
 		text-align: center;
-		border: solid 1px;
 		width: 100%;
 		height: 100%;
+		border: solid 1px;
+	}
+
+	.cellInput:nth-child(9n+1) {
+		border-left: solid 2px;
+	}
+
+	.cellInput:nth-child(9n+4) {
+		border-left: solid 2px;
+	}
+
+	.cellInput:nth-child(9n+7) {
+		border-left: solid 2px;
+	}
+
+	.cellInput:nth-child(9n+9) {
+		border-right: solid 2px;
+	}
+
+	.cellInput:nth-child(-n+9) {
+		border-top: solid 2px;
+	}
+
+	.cellInput:nth-child(n+28):nth-child(-n+36) {
+		border-top: solid 2px;
+	}
+
+	.cellInput:nth-child(n+55):nth-child(-n+63) {
+		border-top: solid 2px;
+	}
+
+	.cellInput:nth-child(n+73):nth-child(-n+81) {
+		border-bottom: solid 2px;
 	}
 
 	#sudoku-grid {
