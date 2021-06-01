@@ -168,7 +168,7 @@
 </header>
 <form id="sudoku-grid" action="">
 	{#each numArr as num}
-		<input class="cellInput" bind:value={num} />
+		<input class="cellInput" bind:value={num} list="defaultNumbers"/>
 	{/each}
 </form>
 <form id="solve-form">
@@ -197,6 +197,7 @@
 		height: 100%;
 		border: solid 1px;
 		padding: 0%;
+		font-size: 4vh;
 	}
 
 	.cellInput:nth-child(9n + 4) {
@@ -222,6 +223,12 @@
 		width: 50vh;
 		border: solid 2px;
 		place-items: center;
+	}
+
+	.cellInput:focus {
+		background: black;
+		outline: none;
+		color: white;
 	}
 
 	@media (min-width: 800px) {
