@@ -196,38 +196,23 @@
 		width: 100%;
 		height: 100%;
 		border: solid 1px;
+		padding: 0%;
 	}
 
-	.cellInput:nth-child(9n+1) {
+	.cellInput:nth-child(9n + 4) {
 		border-left: solid 2px;
 	}
 
-	.cellInput:nth-child(9n+4) {
+	.cellInput:nth-child(9n + 7) {
 		border-left: solid 2px;
 	}
 
-	.cellInput:nth-child(9n+7) {
-		border-left: solid 2px;
-	}
-
-	.cellInput:nth-child(9n+9) {
-		border-right: solid 2px;
-	}
-
-	.cellInput:nth-child(-n+9) {
+	.cellInput:nth-child(n + 28):nth-child(-n + 36) {
 		border-top: solid 2px;
 	}
 
-	.cellInput:nth-child(n+28):nth-child(-n+36) {
+	.cellInput:nth-child(n + 55):nth-child(-n + 63) {
 		border-top: solid 2px;
-	}
-
-	.cellInput:nth-child(n+55):nth-child(-n+63) {
-		border-top: solid 2px;
-	}
-
-	.cellInput:nth-child(n+73):nth-child(-n+81) {
-		border-bottom: solid 2px;
 	}
 
 	#sudoku-grid {
@@ -235,6 +220,8 @@
 		grid-template-columns: repeat(9, 1fr);
 		height: 50vh;
 		width: 50vh;
+		border: solid 2px;
+		place-items: center;
 	}
 
 	@media (min-width: 800px) {
