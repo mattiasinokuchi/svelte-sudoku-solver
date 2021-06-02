@@ -84,11 +84,11 @@
 	];
 	/*const coordInput = document.getElementById("coord");
 	const valInput = document.getElementById("val");
-	const errorMsg = document.getElementById("error");
-
+	const errorMsg = document.getElementById("error");*/
 
 	async function getSolved() {
-		const stuff = { puzzle: textArea.value };
+		console.log("Solution should appear");
+		/*const stuff = { puzzle: textArea.value };
 		const data = await fetch("/api/solve", {
 			method: "POST",
 			headers: {
@@ -106,11 +106,12 @@
 			)}</code>`;
 			return;
 		}
-		fillpuzzle(parsed.solution);
+		fillpuzzle(parsed.solution);*/
 	}
 
 	async function getChecked() {
-		const stuff = {
+		console.log("Sudoku should be checked");
+		/*const stuff = {
 			puzzle: textArea.value,
 			coordinate: coordInput.value,
 			value: valInput.value,
@@ -124,10 +125,10 @@
 			body: JSON.stringify(stuff),
 		});
 		const parsed = await data.json();
-		errorMsg.innerHTML = `<code>${JSON.stringify(parsed, null, 2)}</code>`;
+		errorMsg.innerHTML = `<code>${JSON.stringify(parsed, null, 2)}</code>`;*/
 	}
 
-	document
+	/*document
 		.getElementById("solve-button")
 		.addEventListener("click", getSolved);
 	document
@@ -143,23 +144,14 @@
 		<input class="cellInput" bind:value={num} list="defaultNumbers"/>
 	{/each}
 </form>
-<form id="solve-form">
-	<!--<textarea rows="10" cols="85" id="text-input" name="puzzle" />-->
-	<br />
-	<input type="button" value="Solve" id="solve-button" />
-	<div id="error-msg" />
-</form>
-<form id="check-form">
-	<!--<p>
-				Coordinate (A1): <input
-					id="coord"
-					class="checker"
-					type="text"
-				/>
-			</p>
-			<p>Value (1-9): <input class="checker" type="text" id="val" /></p>-->
-	<input type="button" id="check-button" value="Check Placement" />
-</form>
+<br>
+<button on:click={getSolved}>
+	Solve
+</button>
+<button on:click={getChecked}>
+	Check placement
+</button>
+<div id="error-msg" />
 <span id="error" />
 
 <style>
