@@ -3,9 +3,8 @@ class SudokuSolver {
   // Function for validate input
   hasInvalidInput(string) {
     if (!string) return 'Required field missing';
-    let invalidCharacter = /[^.1-9]/.test(string);
+    let invalidCharacter = /[^1-9]/.test(string);
     if (invalidCharacter) return 'Invalid characters in puzzle';
-    if (string.length != 81) return 'Expected puzzle to be 81 characters long';
     return;
   }
 
@@ -93,44 +92,51 @@ class SudokuSolver {
   }
 
   // Function for solving sudoku by brute force...
-  solve(string, answer) {
-    if (this.hasInvalidInput(string)) throw this.hasInvalidInput(string);
+  solve(numArray, answer) {
+    if (this.hasInvalidInput(numArray.join(''))) throw this.hasInvalidInput(string);
     // ...splits string to an array...
-    const solution = string.split('');
-    let backToIndex = solution.length;
+    for (let index = 0; index < numArray.length; index++) {
+      const element = numArray[index];
+      if(element==='') {
+        numArray[index] = '.'
+      }
+    }
+    let backToIndex = numArray.length;
     // ...loops solving which...
-    while (gaps(solution)>0) {
-      let gapsBefore = gaps(solution);
+    while (gaps(numArray)>0) {
+      let gapsBefore = gaps(numArray);
       // ...heads for the first gap...
-      let index = solution.indexOf('.');
+      let index = numArray.indexOf('.');
       // ...with the first number...
       let number = 1;
       // ...loops a trial which...
-      while (isInvalid(solution) || number===1) {
+      while (isInvalid(numArray) || number===1) {
         if (number<10) {
         // ...increments the number...
-        solution[index] = number++;
+        numArray[index] = number++;
         } else {
-          // ...or modifies solution...
-          modify(solution, backToIndex);
-          if (backToIndex>solution.lastIndexOf(lastFilled(solution))) {
+          // ...or modifies numArray...
+          modify(numArray, backToIndex);
+          if (backToIndex>numArray.lastIndexOf(lastFilled(numArray))) {
             // ...updates backToIndex if a gap is reset...
-            backToIndex = solution.lastIndexOf(lastFilled(solution));
+            backToIndex = numArray.lastIndexOf(lastFilled(numArray));
           }
           // ...heads back to solving...
           break;
         }
       }
-      let gapsAfter = gaps(solution);
+      let gapsAfter = gaps(numArray);
       if (gapsBefore>gapsAfter) {
         // ...updates backToIndex if a gap is filled...
-        backToIndex = solution.lastIndexOf(lastFilled(solution));
+        backToIndex = numArray.lastIndexOf(lastFilled(numArray));
       }
       if (backToIndex<0) {
         throw 'Puzzle cannot be solved';
       }
     }
-    return solution.join('');
+    //return numArray.join('');
+
+    return numArray;
   }
 
   // Function for checking manual placement
@@ -150,9 +156,7 @@ class SudokuSolver {
   }
 }
 
-module.exports = SudokuSolver;
-
-let solver = new SudokuSolver();
+export let solver = new SudokuSolver();
 
 function hasDuplicate(array) {
   let duplicates = array.reduce(function(accumulator, currentValue, currentIndex, array) {
@@ -164,32 +168,32 @@ function hasDuplicate(array) {
   return duplicates.length>0;
 }
 
-// Function to back and find a different solution...
-function modify(solution, backToIndex) {
+// Function to back and find a different numArray...
+function modify(numArray, backToIndex) {
   // ...resets filled numbers...
-  while (backToIndex<solution.lastIndexOf(lastFilled(solution))) {
-    solution[solution.lastIndexOf(lastFilled(solution))] = '.';
+  while (backToIndex<numArray.lastIndexOf(lastFilled(numArray))) {
+    numArray[numArray.lastIndexOf(lastFilled(numArray))] = '.';
   }
-  while (lastFilled(solution)===9) {
+  while (lastFilled(numArray)===9) {
     // ...resets last filled number 9...
-    solution[solution.lastIndexOf(lastFilled(solution))] = '.';
+    numArray[numArray.lastIndexOf(lastFilled(numArray))] = '.';
   }
   // ...increments last filled number 1-8...
-  solution[solution.lastIndexOf(lastFilled(solution))] = lastFilled(solution)+1;
+  numArray[numArray.lastIndexOf(lastFilled(numArray))] = lastFilled(numArray)+1;
   return;
 }
 
-// Function to return if solution is invalid
-function isInvalid(solution) {
-  if (solver.hasInvalidRow(solution.join('')) || solver.hasInvalidColumn(solution.join('')) || solver.hasInvalidRegion(solution.join(''))) {
+// Function to return if numArray is invalid
+function isInvalid(numArray) {
+  if (solver.hasInvalidRow(numArray.join('')) || solver.hasInvalidColumn(numArray.join('')) || solver.hasInvalidRegion(numArray.join(''))) {
     return true;
   } else return false;
 }
 
 // Function to return last filled number...
-function lastFilled(solution) {
+function lastFilled(numArray) {
   // ...finds numbers filled in...
-  let filled = solution.reduce(function (accumulator, currentValue) {
+  let filled = numArray.reduce(function (accumulator, currentValue) {
     // (ignores numbers from the clue since they are strings)
     if (typeof(currentValue) === 'number') {
       accumulator.push(currentValue);
@@ -200,8 +204,8 @@ function lastFilled(solution) {
 }
 
 // Function to return number of gaps...
-function gaps (solution) {
-  return solution.filter(gaps => gaps == '.').length;
+function gaps (numArray) {
+  return numArray.filter(gaps => gaps == '.').length;
 }
 
 // Function to convert puzzle coordinate to string index

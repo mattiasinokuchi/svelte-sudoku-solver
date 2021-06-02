@@ -1,4 +1,6 @@
 <script>
+	import {solver} from './lib/solve.js'
+
 	let numArr = [
 		"",
 		"",
@@ -87,8 +89,13 @@
 	const errorMsg = document.getElementById("error");*/
 
 	async function getSolved() {
-		console.log("Solution should appear");
-		/*const stuff = { puzzle: textArea.value };
+		console.log("solver function called");
+		try {
+			numArr = await solver.solve(numArr);
+		} catch (error) {
+			console.log(error);
+		}
+		/*const stuff = { puzzle: textArea.value };	
 		const data = await fetch("/api/solve", {
 			method: "POST",
 			headers: {
@@ -97,6 +104,7 @@
 			},
 			body: JSON.stringify(stuff),
 		});
+
 		const parsed = await data.json();
 		if (parsed.error) {
 			errorMsg.innerHTML = `<code>${JSON.stringify(
