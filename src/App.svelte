@@ -1,5 +1,4 @@
 <script>
-	import Solve from "./components/Solve.svelte"
 	let numArr = [
 		"",
 		"",
@@ -87,6 +86,29 @@
 	const valInput = document.getElementById("val");
 	const errorMsg = document.getElementById("error");*/
 
+	async function getSolved() {
+		console.log("Solution should appear");
+		/*const stuff = { puzzle: textArea.value };
+		const data = await fetch("/api/solve", {
+			method: "POST",
+			headers: {
+				Accept: "application/json",
+				"Content-type": "application/json",
+			},
+			body: JSON.stringify(stuff),
+		});
+		const parsed = await data.json();
+		if (parsed.error) {
+			errorMsg.innerHTML = `<code>${JSON.stringify(
+				parsed,
+				null,
+				2
+			)}</code>`;
+			return;
+		}
+		fillpuzzle(parsed.solution);*/
+	}
+
 	async function getChecked() {
 		console.log("Sudoku should be checked");
 		/*const stuff = {
@@ -123,7 +145,9 @@
 	{/each}
 </form>
 <br>
-<Solve/>
+<button on:click={getSolved}>
+	Solve
+</button>
 <button on:click={getChecked}>
 	Check placement
 </button>
