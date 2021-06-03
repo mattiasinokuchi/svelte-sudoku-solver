@@ -182,7 +182,7 @@
 	function getChecked() {
 		try {
 			// clone used not to spoil the sudoku
-			const clonedArr = [...numArr]
+			const clonedArr = [...numArr];
 			solver.solve(clonedArr);
 			message = "CHECK OK";
 			isChecked = true;
@@ -205,29 +205,43 @@
 		}
 	}
 
-	function update() {
+	function getUpdate() {
 		message = "";
 		isChecked = false;
 		isSolved = false;
 	}
 </script>
 
-<header>
-	<h1>Sudoku Solver</h1>
-</header>
-<form id="sudoku-grid" on:change={update}>
-	{#each numArr as num}
-		<input class="cellInput" bind:value={num} />
-	{/each}
-</form>
-<br />
-<button on:click={getCleared} disabled={isCleared}> Clear </button>
-<button on:click={getChecked} disabled={isChecked}> Check </button>
-<button on:click={getSolved} disabled={isSolved}> Solve </button>
+<div>
+	<form id="sudoku-grid" on:change={getUpdate}>
+		{#each numArr as num}
+			<input class="cellInput" bind:value={num} />
+		{/each}
+	</form>
+</div>
+<div>
+	<button on:click={getCleared} disabled={isCleared}> Clear </button>
+	<button on:click={getChecked} disabled={isChecked}> Check </button>
+	<button on:click={getSolved} disabled={isSolved}> Solve </button>
+</div>
 <p>{message}</p>
-<span id="error" />
 
 <style>
+	div,
+	p {
+		display: flex;
+		justify-content: center;
+	}
+
+	#sudoku-grid {
+		display: grid;
+		grid-template-columns: repeat(9, 1fr);
+		height: 50vh;
+		width: 50vh;
+		border: solid 2px;
+		place-items: center;
+	}
+
 	.cellInput {
 		text-align: center;
 		width: 100%;
@@ -253,19 +267,16 @@
 		border-top: solid 2px;
 	}
 
-	#sudoku-grid {
-		display: grid;
-		grid-template-columns: repeat(9, 1fr);
-		height: 50vh;
-		width: 50vh;
-		border: solid 2px;
-		place-items: center;
-	}
-
 	.cellInput:focus {
 		background: black;
 		outline: none;
 		color: white;
+	}
+
+	button,
+	p {
+		margin: 5vh;
+		font-size: 3vh;
 	}
 
 	@media (min-width: 800px) {
