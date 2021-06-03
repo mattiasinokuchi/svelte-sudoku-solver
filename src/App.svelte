@@ -85,9 +85,6 @@
 		"",
 	];
 	let message = '';
-	/*const coordInput = document.getElementById("coord");
-	const valInput = document.getElementById("val");
-	const errorMsg = document.getElementById("error");*/
 
 	function getSolved() {
 		try {
@@ -98,31 +95,15 @@
 		}
 	}
 
-	async function getChecked() {
-		console.log("Sudoku should be checked");
-		/*const stuff = {
-			puzzle: textArea.value,
-			coordinate: coordInput.value,
-			value: valInput.value,
-		};
-		const data = await fetch("/api/check", {
-			method: "POST",
-			headers: {
-				Accept: "application/json",
-				"Content-type": "application/json",
-			},
-			body: JSON.stringify(stuff),
-		});
-		const parsed = await data.json();
-		errorMsg.innerHTML = `<code>${JSON.stringify(parsed, null, 2)}</code>`;*/
+	function getChecked() {
+		try {
+			solver.solve(numArr);
+			message = 'Puzzle OK';			
+		} catch (error) {
+			console.log(error);
+			message = error;
+		}
 	}
-
-	/*document
-		.getElementById("solve-button")
-		.addEventListener("click", getSolved);
-	document
-		.getElementById("check-button")
-		.addEventListener("click", getChecked);*/
 </script>
 
 <header>
@@ -130,7 +111,7 @@
 </header>
 <form id="sudoku-grid" action="">
 	{#each numArr as num}
-		<input class="cellInput" bind:value={num} list="defaultNumbers" />
+		<input class="cellInput" bind:value={num}/>
 	{/each}
 </form>
 <br />

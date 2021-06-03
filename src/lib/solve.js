@@ -93,7 +93,7 @@ class SudokuSolver {
   // Function for solving sudoku by brute force...
   solve(numArray, answer) {
     if (this.hasInvalidInput(numArray.join(''))) throw this.hasInvalidInput(numArray);
-    // ...splits string to an array...
+    // ...replaces empty elements with dots...
     for (let index = 0; index < numArray.length; index++) {
       const element = numArray[index];
       if(element==='') {
@@ -133,8 +133,6 @@ class SudokuSolver {
         throw 'Puzzle cannot be solved';
       }
     }
-    //return numArray.join('');
-
     return numArray;
   }
 
