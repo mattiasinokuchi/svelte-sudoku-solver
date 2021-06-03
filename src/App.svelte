@@ -87,7 +87,6 @@
 	let message = "";
 	const elementIsEmpty = (currentValue) => currentValue === "";
 	let isChecked = false;
-
 	$: isCleared = numArr.every(elementIsEmpty);
 
 	function getCleared() {
@@ -187,6 +186,7 @@
 		} catch (error) {
 			console.log(error);
 			message = "CHECK NOT OK";
+			isChecked = true;
 		}
 	}
 
@@ -199,12 +199,17 @@
 			message = error;
 		}
 	}
+
+	function update() {
+		message = "";
+		isChecked = false
+	}
 </script>
 
 <header>
 	<h1>Sudoku Solver</h1>
 </header>
-<form id="sudoku-grid" on:change={() => isChecked = false}>
+<form id="sudoku-grid" on:change={update}>
 	{#each numArr as num}
 		<input class="cellInput" bind:value={num} />
 	{/each}
