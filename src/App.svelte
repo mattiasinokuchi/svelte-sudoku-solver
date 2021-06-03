@@ -116,7 +116,7 @@
 </form>
 <br />
 <button on:click={getSolved}> Solve </button>
-<button on:click={getChecked}> Check placement </button>
+<button on:click={getChecked}> Check </button>
 <p>{message}</p>
 <span id="error" />
 
