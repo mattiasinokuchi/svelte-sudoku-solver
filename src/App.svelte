@@ -1,5 +1,5 @@
 <script>
-	import {solver} from './lib/solve.js'
+	import { solver } from "./lib/solve.js";
 
 	let numArr = [
 		"",
@@ -88,33 +88,8 @@
 	const valInput = document.getElementById("val");
 	const errorMsg = document.getElementById("error");*/
 
-	async function getSolved() {
-		console.log("solver function called");
-		try {
-			numArr = await solver.solve(numArr);
-		} catch (error) {
-			console.log(error);
-		}
-		/*const stuff = { puzzle: textArea.value };	
-		const data = await fetch("/api/solve", {
-			method: "POST",
-			headers: {
-				Accept: "application/json",
-				"Content-type": "application/json",
-			},
-			body: JSON.stringify(stuff),
-		});
-
-		const parsed = await data.json();
-		if (parsed.error) {
-			errorMsg.innerHTML = `<code>${JSON.stringify(
-				parsed,
-				null,
-				2
-			)}</code>`;
-			return;
-		}
-		fillpuzzle(parsed.solution);*/
+	function getSolved() {
+		numArr = solver.solve(numArr);
 	}
 
 	async function getChecked() {
@@ -149,16 +124,12 @@
 </header>
 <form id="sudoku-grid" action="">
 	{#each numArr as num}
-		<input class="cellInput" bind:value={num} list="defaultNumbers"/>
+		<input class="cellInput" bind:value={num} list="defaultNumbers" />
 	{/each}
 </form>
-<br>
-<button on:click={getSolved}>
-	Solve
-</button>
-<button on:click={getChecked}>
-	Check placement
-</button>
+<br />
+<button on:click={getSolved}> Solve </button>
+<button on:click={getChecked}> Check placement </button>
 <div id="error-msg" />
 <span id="error" />
 
