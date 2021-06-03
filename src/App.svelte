@@ -179,7 +179,9 @@
 
 	function getChecked() {
 		try {
-			solver.solve(numArr);
+			// clone used not to spoil the sudoku
+			const clonedArr = [...numArr]
+			solver.solve(clonedArr);
 			message = "Check OK";
 			isChecked = true;
 		} catch (error) {
