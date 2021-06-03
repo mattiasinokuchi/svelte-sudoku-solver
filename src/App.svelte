@@ -182,11 +182,11 @@
 			// clone used not to spoil the sudoku
 			const clonedArr = [...numArr]
 			solver.solve(clonedArr);
-			message = "Check OK";
+			message = "CHECK OK";
 			isChecked = true;
 		} catch (error) {
 			console.log(error);
-			message = error;
+			message = "CHECK NOT OK";
 		}
 	}
 
