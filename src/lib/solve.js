@@ -135,22 +135,6 @@ class SudokuSolver {
     }
     return numArray;
   }
-
-  // Function for checking manual placement
-  checkPlace(string, coordinate, value) {
-    if (!string || !coordinate || !value) throw 'Required field(s) missing';
-    let invalidValid = /[^.1-9]/.test(value);
-    if (invalidValid) throw 'Invalid value';
-    if (this.hasInvalidInput(string)) throw this.hasInvalidInput(string);
-    let conflicts = [];
-    const index = indexOf(coordinate);
-    const newString = setString(string, index, value);
-    if (this.hasInvalidRow(newString)) conflicts.push('row');
-    if (this.hasInvalidColumn(newString)) conflicts.push('column');
-    if (this.hasInvalidRegion(newString)) conflicts.push('region');
-    if (conflicts.length>0) throw conflicts;
-    return;
-  }
 }
 
 export let solver = new SudokuSolver();
@@ -203,30 +187,4 @@ function lastFilled(numArray) {
 // Function to return number of gaps...
 function gaps (numArray) {
   return numArray.filter(gaps => gaps == '.').length;
-}
-
-// Function to convert puzzle coordinate to string index
-function indexOf (coordinate) {
-  const row = coordinate[0].toLowerCase();
-  const column = Math.floor(coordinate[1]);
-  if (isNaN(column)) throw 'Invalid coordinate';
-  switch (row) {
-    case 'a': return column - 1
-    case 'b': return 8 + column
-    case 'c': return 17 + column
-    case 'd': return 26 + column
-    case 'e': return 35 + column
-    case 'f': return 44 + column
-    case 'g': return 53 + column
-    case 'h': return 62 + column
-    case 'i': return 71 + column
-    default: throw 'Invalid coordinate'
-  }
-}
-
-// Function to make a new string
-function setString (string, index, value) {
-  const array = string.split('');
-  array[index] = value;
-  return array.join('');
 }
