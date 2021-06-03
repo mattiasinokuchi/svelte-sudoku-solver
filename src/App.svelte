@@ -1,5 +1,5 @@
 <script>
-	import { solver } from "./lib/solve.js";
+	import { solver } from "./solve.js";
 
 	let numArr = [
 		"",
