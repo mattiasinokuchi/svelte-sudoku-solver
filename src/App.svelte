@@ -86,8 +86,9 @@
 	];
 	let message = "";
 	const elementIsEmpty = (currentValue) => currentValue === "";
-	let isChecked = false;
 	$: isCleared = numArr.every(elementIsEmpty);
+	let isChecked = false;
+	let isSolved = false;
 
 	function getCleared() {
 		numArr = [
@@ -174,6 +175,8 @@
 			"",
 		];
 		message = "";
+		isChecked = false;
+		isSolved = false;
 	}
 
 	function getChecked() {
@@ -194,6 +197,8 @@
 		try {
 			numArr = solver.solve(numArr);
 			message = "";
+			isChecked = true;
+			isSolved = true;
 		} catch (error) {
 			console.log(error);
 			message = error;
@@ -202,7 +207,8 @@
 
 	function update() {
 		message = "";
-		isChecked = false
+		isChecked = false;
+		isSolved = false;
 	}
 </script>
 
@@ -217,7 +223,7 @@
 <br />
 <button on:click={getCleared} disabled={isCleared}> Clear </button>
 <button on:click={getChecked} disabled={isChecked}> Check </button>
-<button on:click={getSolved}> Solve </button>
+<button on:click={getSolved} disabled={isSolved}> Solve </button>
 <p>{message}</p>
 <span id="error" />
 
