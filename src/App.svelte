@@ -85,6 +85,9 @@
 		"",
 	];
 	let message = "";
+	const elementIsEmpty = (currentValue) => currentValue === "";
+
+	$: isCleared = numArr.every(elementIsEmpty);
 
 	function getCleared() {
 		numArr = [
@@ -168,8 +171,9 @@
 			"",
 			"",
 			"",
-			""
+			"",
 		];
+		message = "";
 	}
 
 	function getChecked() {
@@ -185,6 +189,7 @@
 	function getSolved() {
 		try {
 			numArr = solver.solve(numArr);
+			message = "";
 		} catch (error) {
 			console.log(error);
 			message = error;
@@ -201,7 +206,7 @@
 	{/each}
 </form>
 <br />
-<button on:click={getCleared}> Clear </button>
+<button on:click={getCleared} disabled={isCleared}> Clear </button>
 <button on:click={getChecked}> Check </button>
 <button on:click={getSolved}> Solve </button>
 <p>{message}</p>
