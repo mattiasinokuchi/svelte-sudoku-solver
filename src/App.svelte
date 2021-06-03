@@ -84,21 +84,107 @@
 		"",
 		"",
 	];
-	let message = '';
+	let message = "";
 
-	function getSolved() {
+	function getCleared() {
+		numArr = [
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			""
+		];
+	}
+
+	function getChecked() {
 		try {
-			numArr = solver.solve(numArr);			
+			solver.solve(numArr);
+			message = "Puzzle OK";
 		} catch (error) {
 			console.log(error);
 			message = error;
 		}
 	}
 
-	function getChecked() {
+	function getSolved() {
 		try {
-			solver.solve(numArr);
-			message = 'Puzzle OK';			
+			numArr = solver.solve(numArr);
 		} catch (error) {
 			console.log(error);
 			message = error;
@@ -111,12 +197,13 @@
 </header>
 <form id="sudoku-grid" action="">
 	{#each numArr as num}
-		<input class="cellInput" bind:value={num}/>
+		<input class="cellInput" bind:value={num} />
 	{/each}
 </form>
 <br />
-<button on:click={getSolved}> Solve </button>
+<button on:click={getCleared}> Clear </button>
 <button on:click={getChecked}> Check </button>
+<button on:click={getSolved}> Solve </button>
 <p>{message}</p>
 <span id="error" />
 
