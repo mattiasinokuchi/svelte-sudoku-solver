@@ -2,7 +2,6 @@ class SudokuSolver {
 
   // Function for validate input
   hasInvalidInput(string) {
-    if (!string) return 'Required field missing';
     let invalidCharacter = /[^1-9]/.test(string);
     if (invalidCharacter) return 'Invalid characters in puzzle';
     return;
@@ -93,7 +92,7 @@ class SudokuSolver {
 
   // Function for solving sudoku by brute force...
   solve(numArray, answer) {
-    if (this.hasInvalidInput(numArray.join(''))) throw this.hasInvalidInput(string);
+    if (this.hasInvalidInput(numArray.join(''))) throw this.hasInvalidInput(numArray);
     // ...splits string to an array...
     for (let index = 0; index < numArray.length; index++) {
       const element = numArray[index];

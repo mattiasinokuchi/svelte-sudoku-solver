@@ -84,12 +84,18 @@
 		"",
 		"",
 	];
+	let message = '';
 	/*const coordInput = document.getElementById("coord");
 	const valInput = document.getElementById("val");
 	const errorMsg = document.getElementById("error");*/
 
 	function getSolved() {
-		numArr = solver.solve(numArr);
+		try {
+			numArr = solver.solve(numArr);			
+		} catch (error) {
+			console.log(error);
+			message = error;
+		}
 	}
 
 	async function getChecked() {
@@ -130,7 +136,7 @@
 <br />
 <button on:click={getSolved}> Solve </button>
 <button on:click={getChecked}> Check placement </button>
-<div id="error-msg" />
+<p>{message}</p>
 <span id="error" />
 
 <style>
