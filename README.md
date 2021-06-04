@@ -1,5 +1,5 @@
 # What is this?
 
-This is an app written using [Svelte](https://svelte.dev/).
+This is an app for solving sudoku.
 
 ![screenshot](Screenshot.png)
