@@ -244,7 +244,7 @@
 		grid-template-columns: repeat(9, 1fr);
 		height: 50vh;
 		width: 50vh;
-		border: solid 2px;
+		border: solid darkgray 2px;
 		place-items: center;
 	}
 
@@ -252,26 +252,26 @@
 		text-align: center;
 		width: 100%;
 		height: 100%;
-		border: solid 1px;
+		border: solid lightgrey 1px;
 		padding: 0%;
 		font-size: 2.5vh;
 		border-radius: 0%;
 	}
 
 	.cellInput:nth-child(9n + 4) {
-		border-left: solid 2px;
+		border-left: solid darkgrey 2px;
 	}
 
 	.cellInput:nth-child(9n + 7) {
-		border-left: solid 2px;
+		border-left: solid darkgrey 2px;
 	}
 
 	.cellInput:nth-child(n + 28):nth-child(-n + 36) {
-		border-top: solid 2px;
+		border-top: solid darkgrey 2px;
 	}
 
 	.cellInput:nth-child(n + 55):nth-child(-n + 63) {
-		border-top: solid 2px;
+		border-top: solid darkgrey 2px;
 	}
 
 	.cellInput:focus {
@@ -280,12 +280,16 @@
 		color: white;
 	}
 
-	button,
-	p {
+	button {
 		font-size: 2.5vh;
-		margin: 5vh;
+		margin: 3vh;
+		border:	dashed lightgray 1px;
+		height: 5vh;
+		width: 10vh;
 	}
 
-	@media (min-width: 800px) {
+	p {
+		font-size: 2.5vh;
+		margin: 3vh;
 	}
 </style>
