@@ -6,3 +6,9 @@ input, button, p {
     font-family: "myWebFont";
     src: url('./fonts/Imweird-dKwl.ttf');
   }
+
+input[type=text], input[type=button] {
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+    border-radius: 0%;
+}
