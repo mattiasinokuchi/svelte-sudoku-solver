@@ -221,9 +221,9 @@
 		</form>
 	</div>
 	<div>
-		<button on:click={getCleared} disabled={isCleared}> Clear </button>
-		<button on:click={getChecked} disabled={isChecked}> Check </button>
-		<button on:click={getSolved} disabled={isSolved}> Solve </button>
+		<button on:click={getCleared} disabled={isCleared}> clear </button>
+		<button on:click={getChecked} disabled={isChecked}> check </button>
+		<button on:click={getSolved} disabled={isSolved}> solve </button>
 	</div>
 	<p>{message}</p>
 </main>
