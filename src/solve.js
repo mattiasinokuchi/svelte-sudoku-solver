@@ -130,7 +130,7 @@ class SudokuSolver {
         backToIndex = numArray.lastIndexOf(lastFilled(numArray));
       }
       if (backToIndex<0) {
-        throw 'Puzzle cannot be solved';
+        throw "says 'cannot be solved'";
       }
     }
     return numArray;

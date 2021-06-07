@@ -288,7 +288,7 @@
 	}
 
 	p {
-		font-size: 5vh;
+		font-size: 3vh;
 		margin: 3vh;
 	}
 </style>
