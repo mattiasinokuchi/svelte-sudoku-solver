@@ -241,8 +241,8 @@
 	#sudoku-grid {
 		display: grid;
 		grid-template-columns: repeat(9, 1fr);
-		height: 50vh;
-		width: 50vh;
+		height: 60vh;
+		width: 60vh;
 		border: solid darkgray 2px;
 		place-items: center;
 	}
@@ -253,7 +253,7 @@
 		height: 100%;
 		border: solid lightgrey 1px;
 		padding: 0%;
-		font-size: 2.5vh;
+		font-size: 3vh;
 		border-radius: 0%;
 	}
 
@@ -280,10 +280,10 @@
 	}
 
 	button {
-		font-size: 2.5vh;
+		font-size: 3vh;
 		margin: 0 3vh 0 3vh;
 		border: dashed lightgray 1px;
-		height: 5vh;
+		height: 6vh;
 		width: 10vh;
 	}
 

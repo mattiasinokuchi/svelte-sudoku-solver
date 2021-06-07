@@ -7,6 +7,7 @@ input, button, p {
     src: url('./fonts/Imweird-dKwl.ttf');
   }
 
+/* disable iOS default styling*/  
 input[type=text], input[type=button] {
     -moz-appearance: none;
     appearance: none;
