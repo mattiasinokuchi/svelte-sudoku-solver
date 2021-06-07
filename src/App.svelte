@@ -212,21 +212,19 @@
 	}
 </script>
 
-<main>
-	<div>
-		<form id="sudoku-grid" on:change={getUpdate}>
-			{#each numArr as num}
-				<input class="cellInput" bind:value={num} />
-			{/each}
-		</form>
-	</div>
-	<p>{message}</p>
-	<div>
-		<button on:click={getCleared} disabled={isCleared}> clear </button>
-		<button on:click={getChecked} disabled={isChecked}> check </button>
-		<button on:click={getSolved} disabled={isSolved}> solve </button>
-	</div>
-</main>
+<div>
+	<form id="sudoku-grid" on:change={getUpdate}>
+		{#each numArr as num}
+			<input class="cellInput" bind:value={num} />
+		{/each}
+	</form>
+</div>
+<p>{message}</p>
+<div>
+	<button on:click={getCleared} disabled={isCleared}> clear </button>
+	<button on:click={getChecked} disabled={isChecked}> check </button>
+	<button on:click={getSolved} disabled={isSolved}> solve </button>
+</div>
 
 <style>
 	div,
@@ -235,7 +233,8 @@
 		justify-content: center;
 	}
 
-	div, p {
+	div,
+	p {
 		margin-top: 10vh;
 	}
 
@@ -283,7 +282,7 @@
 	button {
 		font-size: 2.5vh;
 		margin: 0 3vh 0 3vh;
-		border:	dashed lightgray 1px;
+		border: dashed lightgray 1px;
 		height: 5vh;
 		width: 10vh;
 	}
