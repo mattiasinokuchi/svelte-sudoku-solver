@@ -1,0 +1,8 @@
+input, button {
+    font-family: "myWebFont";
+  }
+  
+  @font-face {
+    font-family: "myWebFont";
+    src: url('./fonts/Imweird-dKwl.ttf');
+  }
