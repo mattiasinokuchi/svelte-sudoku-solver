@@ -284,7 +284,7 @@
 		margin: 0 3vh 0 3vh;
 		border: dashed lightgray 1px;
 		height: 6vh;
-		width: 10vh;
+		width: 15vh;
 	}
 
 	p {
