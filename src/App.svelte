@@ -255,6 +255,7 @@
 		border: solid 1px;
 		padding: 0%;
 		font-size: 4vh;
+		border-radius: 0%;
 	}
 
 	.cellInput:nth-child(9n + 4) {
