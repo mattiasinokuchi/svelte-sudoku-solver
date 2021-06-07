@@ -212,7 +212,7 @@
 	}
 </script>
 
-
+<main>
 	<div>
 		<form id="sudoku-grid" on:change={getUpdate}>
 			{#each numArr as num}
@@ -226,7 +226,7 @@
 		<button on:click={getSolved} disabled={isSolved}> Solve </button>
 	</div>
 	<p>{message}</p>
-
+</main>
 
 <style>
 	div,
@@ -244,7 +244,7 @@
 		grid-template-columns: repeat(9, 1fr);
 		height: 50vh;
 		width: 50vh;
-		border: solid white 2px;
+		border: solid 2px;
 		place-items: center;
 	}
 
@@ -252,44 +252,37 @@
 		text-align: center;
 		width: 100%;
 		height: 100%;
-		border: solid white 1px;
+		border: solid 1px;
 		padding: 0%;
 		font-size: 4vh;
-		background: black;
-		color: white;
 	}
 
 	.cellInput:nth-child(9n + 4) {
-		border-left: solid white 2px;
+		border-left: solid 2px;
 	}
 
 	.cellInput:nth-child(9n + 7) {
-		border-left: solid white 2px;
+		border-left: solid 2px;
 	}
 
 	.cellInput:nth-child(n + 28):nth-child(-n + 36) {
-		border-top: solid white 2px;
+		border-top: solid 2px;
 	}
 
 	.cellInput:nth-child(n + 55):nth-child(-n + 63) {
-		border-top: solid white 2px;
+		border-top: solid 2px;
 	}
 
 	.cellInput:focus {
-		background: white;
-		outline: none;
-		color: black;
-	}
-
-	button {
-		font-size: 3vh;
 		background: black;
+		outline: none;
 		color: white;
-		margin: 5vh;
 	}
 
-	button:disabled {
-		color: dimgray;
+	button,
+	p {
+		font-size: 3vh;
+		margin: 5vh;
 	}
 
 	@media (min-width: 800px) {
