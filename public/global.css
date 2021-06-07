@@ -8,9 +8,9 @@ input, button, p {
   }
 
 input[type=text], input[type=button] {
-    -moz-appearance: none;
-    appearance: none;
-    -webkit-appearance: none;
-    -webkit-border-radius: 0;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    -webkit-border-radius: 0 !important;
     border-radius: 0%;
 }
