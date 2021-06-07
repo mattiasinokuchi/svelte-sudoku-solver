@@ -254,7 +254,7 @@
 		height: 100%;
 		border: solid 1px;
 		padding: 0%;
-		font-size: 4vh;
+		font-size: 2.5vh;
 		border-radius: 0%;
 	}
 
@@ -282,7 +282,7 @@
 
 	button,
 	p {
-		font-size: 3vh;
+		font-size: 2.5vh;
 		margin: 5vh;
 	}
 
