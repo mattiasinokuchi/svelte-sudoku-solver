@@ -184,11 +184,11 @@
 			// clone used not to spoil the sudoku
 			const clonedArr = [...numArr];
 			solver.solve(clonedArr);
-			message = "CHECK OK";
+			message = "ok :-)";
 			isChecked = true;
 		} catch (error) {
 			console.log(error);
-			message = "CHECK NOT OK";
+			message = "not ok :-|";
 			isChecked = true;
 		}
 	}
@@ -220,12 +220,12 @@
 			{/each}
 		</form>
 	</div>
+	<p>{message}</p>
 	<div>
 		<button on:click={getCleared} disabled={isCleared}> clear </button>
 		<button on:click={getChecked} disabled={isChecked}> check </button>
 		<button on:click={getSolved} disabled={isSolved}> solve </button>
 	</div>
-	<p>{message}</p>
 </main>
 
 <style>
@@ -235,7 +235,7 @@
 		justify-content: center;
 	}
 
-	div {
+	div, p {
 		margin-top: 10vh;
 	}
 
@@ -282,14 +282,14 @@
 
 	button {
 		font-size: 2.5vh;
-		margin: 3vh;
+		margin: 0 3vh 0 3vh;
 		border:	dashed lightgray 1px;
 		height: 5vh;
 		width: 10vh;
 	}
 
 	p {
-		font-size: 2.5vh;
+		font-size: 5vh;
 		margin: 3vh;
 	}
 </style>
