@@ -184,11 +184,11 @@
 			// clone used not to spoil the sudoku
 			const clonedArr = [...numArr];
 			solver.solve(clonedArr);
-			message = "ok :-)";
+			message = "says 'ok' :-)";
 			isChecked = true;
 		} catch (error) {
 			console.log(error);
-			message = "not ok :-|";
+			message = "says 'not ok'";
 			isChecked = true;
 		}
 	}
@@ -212,6 +212,7 @@
 	}
 </script>
 
+<p>sudoku solver {message} </p>
 <div>
 	<form id="sudoku-grid" on:change={getUpdate}>
 		{#each numArr as num}
@@ -219,7 +220,6 @@
 		{/each}
 	</form>
 </div>
-<p>{message}</p>
 <div>
 	<button on:click={getCleared} disabled={isCleared}> clear </button>
 	<button on:click={getChecked} disabled={isChecked}> check </button>
