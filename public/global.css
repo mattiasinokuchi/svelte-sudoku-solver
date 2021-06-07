@@ -8,6 +8,8 @@ input, button, p {
   }
 
 input[type=text], input[type=button] {
+    -moz-appearance: none;
+    appearance: none;
     -webkit-appearance: none;
     -webkit-border-radius: 0;
     border-radius: 0%;
