@@ -216,7 +216,7 @@
 <div>
 	<form id="sudoku-grid" on:change={getUpdate}>
 		{#each numArr as num}
-			<input class="cellInput" bind:value={num} />
+			<input type="text" class="cellInput" bind:value={num} />
 		{/each}
 	</form>
 </div>
