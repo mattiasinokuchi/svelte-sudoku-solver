@@ -3,7 +3,7 @@ class SudokuSolver {
   // Function for validate input
   hasInvalidInput(string) {
     let invalidCharacter = /[^1-9]/.test(string);
-    if (invalidCharacter) return 'Invalid characters in puzzle';
+    if (invalidCharacter) return 'invalid characters';
     return;
   }
 
